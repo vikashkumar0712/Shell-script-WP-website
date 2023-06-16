@@ -1,4 +1,4 @@
-## Shell-script-WP-website
+## About the Shell Script
 
 This script checks the availability of Docker and Docker Compose on your system. If they are not present, it will install both. Next, it will take your site name and creates an entry in the /etc/hosts file, pointing the site name (example.com) to localhost. The script then creates containers for a WordPress LEMP stack using Docker Compose.
 
