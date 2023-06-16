@@ -5,7 +5,7 @@ Is_exists() {
   command -v "$1" >/dev/null 2>&1
 }
 
-# Checking if the docker and docker-compose is available or not, if not then install
+# check docker
 check_install_docker() {
   if ! Is_exists docker || ! Is_exists docker-compose; then
     echo "Docker and Docker Compose are not installed. Installing Docker and Docker Compose..."
@@ -19,7 +19,7 @@ check_install_docker() {
   fi
 }
 
-# Create a WordPress site using the latest version
+# Creating website using latest wordpress
 create_wordpress_site() {
   if [ -z "$1" ]; then
     echo "Please provide a site name while running the script."
@@ -28,7 +28,7 @@ create_wordpress_site() {
 
   site_name="$1"
 
-  # Create docker-compose.yml file
+  # Creating docker-compose.yml file
   cat >docker-compose.yml <<EOL
 version: '3'
 services:
@@ -69,7 +69,7 @@ EOL
     xdg-open "http://$site_name"
 }
 
-# Main script
+# Main section of script
 # Enable the WordPress site (start containers)
 enable_site() {
   docker-compose up -d
@@ -88,10 +88,10 @@ delete_site() {
   sudo rm -rf db_data
   echo "WordPress site deleted."
 }
-# Check if docker and docker-compose are installed, and install if missing
+# calling the function to check docker is installed or not
 check_install_docker
 
-# Create a WordPress site with the site name provided as a command-line argument
+# Creating a WordPress site with the site name provided as a command-line argument
 create_wordpress_site "$1"
 
 Site_State=$2
