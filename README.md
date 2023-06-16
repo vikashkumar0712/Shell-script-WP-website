@@ -9,4 +9,4 @@ This Script will check the availability of Docker and Docker-compose in your sys
 ### Syntax sudo ./script.sh site-name site-action
  ``` sudo chmod +x script.sh
      sudo ./script.sh example.com enable
-     ```
+ ```
